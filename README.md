@@ -1,13 +1,24 @@
+# AML Syntax Highlighter
+
+From the [New York Times](http://archieml.org/):
+
+### What is Archie Markup Language?
+
+ArchieML (or "AML") was created at The New York Times to make it easier to write and edit structured text on deadline that could be rendered in web pages, or more specifically, rendered in interactive graphics.
+
+### What is this then?
+
+A nifty syntax highlighter for [Sublime Text](http://www.sublimetext.com/) to make your code easier to read and write.
+
+![A sample of what the AML highlighter looks like](http://www.tampabay.com/specials/2015/graphics/standalones/aml_highlighter_sample.jpg "AML highlighter in Sublime's Monokai theme")
+
 # How to install
 
 1. Copy the `aml.tmLanguage` file and put it in `/User/your_user_id/Library/Application Support/Sublime Text 3/Packages/User/`
+    + Alternatively, if you have Package Control installed, you can open the Command Palette (`Cmd + Shift + P`) and type `Browse Packages`
+    + Copy these files into the `User` folder
 2. Open the test.aml file and have your mind be blown, baby.
 
-```
-  ____        _          ____             _                 
- |  _ \  __ _| |_ __ _  |  _ \ __ _ _ __ | |_ ___  _ __ ___ 
- | | | |/ _` | __/ _` | | |_) / _` | '_ \| __/ _ \| '__/ __|
- | |_| | (_| | || (_| | |  _ < (_| | |_) | || (_) | |  \__ \
- |____/ \__,_|\__\__,_| |_| \_\__,_| .__/ \__\___/|_|  |___/
-                                   |_|                      
-```
+# Credits
+
+Shoutout to [Michael Strickland](https://github.com/abstrctn) for his work on [AML](http://archieml.org/).
