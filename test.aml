@@ -1,0 +1,111 @@
+1: value
+2:value
+3   : value
+ 4:    value
+5:	value	
+
+a: lowercase a
+A: uppercase A
+
+colors.red_1: #f00
+colors.green: #0f0
+colors.blue: #00f
+
+{colors.red2}
+red: #f00
+green: #0f0
+blue: #00f
+
+{numbers_1}
+one: 1
+ten: 10
+one-hundred: 100
+{}
+
+key: value
+
+[arrayName2.colors.forthe_loveofgod]
+
+Jeremy spoke with her on Friday, follow-up scheduled for next week
+name: Amanda
+age: 26
+
+# Contact: 434-555-1234
+name: Tessa
+age: 30
+
+[]
+
+[days]
+[.weeks]
+* Sunday
+note: holiday!
+* Monday
+* Tuesday
+[.weeks2]
+Whitespace is still fine around the '*'
+  *   Wednesday
+
+* Thursday
+[]
+
+Friday!
+* Friday
+* Saturday
+[]
+[]
+
+[+books.nothing]
+kicker: Books you should read
+
+score: ★★★★★!!!
+title: Wuthering Heights
+author: Emily Brontë
+
+title: Middlemarch
+author: George Eliot
+score: ★★★★☆
+
+[+chorus]
+
+[]
+
+key: value
+ More value
+
+Even more value
+:end
+
+key: value
+\:end
+:end
+
+key: value
+\more: value
+:end
+
+key: value
+[escaping * is not necessary if we're not inside an array, but will still be removed]
+\* value
+:end
+
+key: value
+\:ignore
+\:skip
+\:endskip
+:end
+
+:skip
+  this: text
+  will: be
+  ignored
+:endskip
+
+key: value
+:ignore
+
+[array]
+* Blah
+[]
+
+other-key: other value
