@@ -8,22 +8,23 @@ uuid: 48d64183-3530-4807-9398-8b223de13788
 patterns:
 - comment: Keys and values
   name: entity.name.tag.aml
-  match: "^(?i)\\s*([a-z]+|[0-9]+|-|_)+\\s*:"
+  match: "^(?i)\\s*(\\w|-)+\\s*:"
 - comment: Nested key structure
   name: variable.parameter.aml
-  match: "^\\s*(?i)(([a-z]+|[0-9]+|-|_)+\\.)+([a-z]+|[0-9]+|-|_)+\\s*:"
+  match: "^\\s*(?i)((\\w+|-)+\\.)+(\\w+|-)+\\s*:"
 - comment: Nested key structure with an object block
-  begin: "^(?i)\\s*{\\s*([a-z]+|[0-9]+|-|_|\\.)+\\s*}"
+  begin: "^\\s*(?i)(\\{\\s*(\\w+|-|\\.)+\\s*\\})"
   beginCaptures:
     '0': {name: variable.parameter.aml}
-  end: "^({}|(?={.+}))"
+  end: "^(\\{\\}|(?=\\{.+\\}))"
   endCaptures:
     '0': {name: variable.parameter.aml}
   patterns:
-  - name: variable.parameter.aml
-    match: "^(?i)\\s*([a-z]*|[0-9]*|-*|_*)+\\s*:"
+  # - name: variable.parameter.aml
+  #   match: "^(?i)\\s*([a-z]*|[0-9]*|-*|_*)+\\s*:"
+  - include: $self
 - comment: Array of objects
-  begin: "^(?i)\\s*\\[\\.*(([a-z]+|[0-9]+)+(-|_|\\.))*([a-z]+|[0-9]+)+\\s*\\]"
+  begin: "^\\s*(?i)(\\[\\.*(\\w+|-|\\.)+\\s*\\])"
   beginCaptures:
     '0': {name: entity.name.function.aml}
   end: "^(\\[\\]|(?=\\[(?:\\.\\]).+\\]))"
@@ -31,22 +32,15 @@ patterns:
     '0': {name: entity.name.function.aml}
   patterns:
   - include: $self
-  - name: entity.name.function.aml
-    comment: key-value pairs
-    match: "^(?i)\\s*([a-z]*|[0-9]*|-*|_*)+\\s*:"
+  # - name: entity.name.function.aml
+  #   comment: key-value pairs
+  #   match: "^(?i)\\s*([a-z]*|[0-9]*|-*|_*)+\\s*:"
   - name: string.quoted.double.aml
     comment: Arrays of strings
     match: "^\\s*\\*.+"
-  # - comment: Nested arrays
-  #   begin: "^(?i)\\s*\\[\\.([a-z]+|[0-9]+)+(-|_)*([a-z]+|[0-9]+)*\\s*\\]"
-  #   beginCaptures:
-  #     '0': {name: storage.type.aml}
-  #   end: "^\\[\\]"
-  #   endCaptures:
-  #     '0': {name: storage.type.aml}
 - comment: Freeform arrays
   # name: storage.type.aml
-  begin: "^(?i)\\s*\\[\\+*(([a-z]+|[0-9]+)+(-|_|\\.))*([a-z]+|[0-9]+)+\\s*\\]"
+  begin: "^\\s*(?i)(\\[\\+(\\w+|-|\\.)+\\s*\\])"
   beginCaptures:
     '0': {name: storage.type.aml}
   end: "^(\\[\\]|(?=\\[\\+.+\\]))"
@@ -62,8 +56,8 @@ patterns:
   match: "(\\\\)(\\S)+"
 - comment: Block comments
   name: comment.block.aml
-  begin: ":skip"
-  end: ":endskip"
+  begin: "^:skip"
+  end: "^:endskip"
 - comment: Ignore comments
   name: comment.block.aml
   begin: "^:ignore"

@@ -15,7 +15,7 @@
 			<key>comment</key>
 			<string>Keys and values</string>
 			<key>match</key>
-			<string>^(?i)\s*([a-z]+|[0-9]+|-|_)+\s*:</string>
+			<string>^(?i)\s*(\w|-)+\s*:</string>
 			<key>name</key>
 			<string>entity.name.tag.aml</string>
 		</dict>
@@ -23,13 +23,13 @@
 			<key>comment</key>
 			<string>Nested key structure</string>
 			<key>match</key>
-			<string>^\s*(?i)(([a-z]+|[0-9]+|-|_)+\.)+([a-z]+|[0-9]+|-|_)+\s*:</string>
+			<string>^\s*(?i)((\w+|-)+\.)+(\w+|-)+\s*:</string>
 			<key>name</key>
 			<string>variable.parameter.aml</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^(?i)\s*{\s*([a-z]+|[0-9]+|-|_|\.)+\s*}</string>
+			<string>^\s*(?i)(\{\s*(\w+|-|\.)+\s*\})</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -41,7 +41,7 @@
 			<key>comment</key>
 			<string>Nested key structure with an object block</string>
 			<key>end</key>
-			<string>^({}|(?={.+}))</string>
+			<string>^(\{\}|(?=\{.+\}))</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -53,16 +53,14 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>match</key>
-					<string>^(?i)\s*([a-z]*|[0-9]*|-*|_*)+\s*:</string>
-					<key>name</key>
-					<string>variable.parameter.aml</string>
+					<key>include</key>
+					<string>$self</string>
 				</dict>
 			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^(?i)\s*\[\.*(([a-z]+|[0-9]+)+(-|_|\.))*([a-z]+|[0-9]+)+\s*\]</string>
+			<string>^\s*(?i)(\[\.*(\w+|-|\.)+\s*\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -91,14 +89,6 @@
 				</dict>
 				<dict>
 					<key>comment</key>
-					<string>key-value pairs</string>
-					<key>match</key>
-					<string>^(?i)\s*([a-z]*|[0-9]*|-*|_*)+\s*:</string>
-					<key>name</key>
-					<string>entity.name.function.aml</string>
-				</dict>
-				<dict>
-					<key>comment</key>
 					<string>Arrays of strings</string>
 					<key>match</key>
 					<string>^\s*\*.+</string>
@@ -109,7 +99,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^(?i)\s*\[\+*(([a-z]+|[0-9]+)+(-|_|\.))*([a-z]+|[0-9]+)+\s*\]</string>
+			<string>^\s*(?i)(\[\+(\w+|-|\.)+\s*\])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -156,11 +146,11 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>:skip</string>
+			<string>^:skip</string>
 			<key>comment</key>
 			<string>Block comments</string>
 			<key>end</key>
-			<string>:endskip</string>
+			<string>^:endskip</string>
 			<key>name</key>
 			<string>comment.block.aml</string>
 		</dict>
