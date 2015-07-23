@@ -1,8 +1,8 @@
 # AML Syntax Highlighter
 
-From the [New York Times](http://archieml.org/):
+### What is AML?
 
-### What is Archie Markup Language?
+From the [New York Times](http://archieml.org/):
 
 ArchieML (or "AML") was created at The New York Times to make it easier to write and edit structured text on deadline that could be rendered in web pages, or more specifically, rendered in interactive graphics.
 
@@ -21,4 +21,6 @@ A nifty syntax highlighter for [Sublime Text](http://www.sublimetext.com/) to ma
 
 # Credits
 
-Shoutout to [Michael Strickland](https://github.com/abstrctn) for his work on [AML](http://archieml.org/).
+Shoutout to [Michael Strickland](https://github.com/abstrctn) for his work on [AML](http://archieml.org/) and the [New York Times](http://www.nytimes.com) for open-sourcing things.
+
+*Produced for the [Tampa Bay Times](http://www.tampabay.com)*
